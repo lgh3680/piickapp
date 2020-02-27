@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>가맹점 포인트</title>
+	<!--font-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/contents.css">
+    <!-- scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/pos_coin_use.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<div class="header">
+			<ul>
+				<li class="logo_box"><a href="pos_menu.html"><img src="../images/pos_logo.png"/></a></li>
+				<li class="menu_btn_box"><a href="pos_menu.html"><img src="../images/menu_btn.png"/></a></li>
+			</ul>
+		</div>
+		<div class="contents">
+			<div class="coin_use_form">
+				<div class="coin_input_form">
+					<div class="main_title">캐시사용</div>
+					<div class="coin_input_box">
+						<div class="sub_title">휴대폰 번호</div>
+						<div class="input_box"><input type="number" class="number_input" id="phone_num" max="9999" placeholder="휴대폰 번호 뒷자리입력"/></div>
+					</div>
+					<div class="coin_user_list">
+						<div class="point_tbl" id="user_list">
+
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="point_keypad">
+					<div class="point_tbl keypad_form">
+						<ul class="point_row">
+							<li class="point_cell keypad_num">1</li>
+							<li class="point_cell keypad_num">2</li>
+							<li class="point_cell keypad_num">3</li>
+						</ul>
+						<ul class="point_row">
+							<li class="point_cell keypad_num">4</li>
+							<li class="point_cell keypad_num">5</li>
+							<li class="point_cell keypad_num">6</li>
+						</ul>
+						<ul class="point_row">
+							<li class="point_cell keypad_num">7</li>
+							<li class="point_cell keypad_num">8</li>
+							<li class="point_cell keypad_num">9</li>
+						</ul>
+						<ul class="point_row">
+							<li class="point_cell keypad_num">00</li>
+							<li class="point_cell keypad_num">0</li>
+							<li class="point_cell keypad_num">000</li>
+						</ul>
+						<ul class="point_row">
+							<li class="point_cell keypad_num keypad_ok">확인</li>
+							<li class="point_cell keypad_num keypad_delete">취소</li>
+							<li class="point_cell keypad_num">←</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="slide_form">
+					<div class="slide_con">
+						<div class="pop_con_title">회원정보확인</div>
+						<div class="coin_user_info">
+							<div class="">회원이름 : <span id="display_name">홍길동</span></div>
+							<div class="">전화번호 : <span id="mobile">010-0000-0000</span></div>
+							<div class="">보유캐시 : <span id="amount">0</span>원</div>
+						</div>
+						<div class="coin_input">
+							<input type="number" class="number_input" id="amount_use" placeholder="사용할 캐시 입력"/>
+						</div>
+            <div class="coupon_search">쿠폰확인</div>
+						<div class="coin_btn">
+							<div class="coin_delete"><span class="coin_delete_btn">취소</span></div>
+							<div class="coin_ok"><span class="coin_ok_btn" id="coin_btn">사용</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="pop_form" style="display:none;">
+					<div class="pop_con ok_info">
+						<div class="ok_info_title">사용되었습니다.</div>
+						<div class="ok_info_check">확인</div>
+					</div>
+
+          <div class="pop_con coupon_pop" style="display:none;">
+            <div class="coupon_title">쿠폰사용</div>
+
+            <div class="coupon_list_box">
+              <div class="coupon_tbl" id="coupon_list">
+                
+
+              </div>
+            </div>
+            <div class="coupon_pop_close">닫기</div>
+          </div>
+				</div>
+			</div>
+
+		</div><!---ccontetns end--->
+	</div><!------wrap end------->
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>가맹점 포인트</title>
+	<!--font-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/contents.css">
+    <!-- scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/pos_message.js"></script>
+  <!-- jQuery & jQuery UI + theme (required) -->
+  <link href="../css/jquery-ui.min.css" rel="stylesheet">
+  <script src="../js/jquery-ui-custom.min.js"></script>
+  <!-- keyboard widget css & script (required) -->
+  <link href="../css/keyboard-basic.css" rel="stylesheet">
+  <script src="../js/jquery.keyboard.js"></script>
+  <!-- keyboard extensions (optional) -->
+  <script src="../js/jquery.mousewheel.js"></script>
+
+  <script>
+    $(function(){
+      $('#member_search_value').keyboard({
+           autoAccept: true
+      });
+    });
+    $(function(){
+      $('.title_input').keyboard({
+           autoAccept: true
+      });
+    });
+    $(function(){
+      $('#real_content').keyboard({
+           autoAccept: true
+      });
+    });
+  
+    </script>
+</head>
+<body>
+	<div id="wrap">
+		<div class="header">
+			<ul>
+        <li class="logo_box"><a href="pos_menu.html"><img src="../images/pos_logo.png"/></a></li>
+        <li class="menu_btn_box"><a href="pos_menu.html"><img src="../images/menu_btn.png"/></a></li>
+			</ul>
+		</div>
+		<div class="contents">
+			<div class="message_con_form">
+				<div class="main_title">문자발송</div>
+				<div class="message_box">
+					<div class="message_form">
+					<div class="message_choice">
+						<ul>
+							<li class="message_title">제목</li>
+							<li class="message_gwang">광고</li>
+							<li class="message_img">사진첨부</li>
+							<li class="message_tamp">템플릿</li>
+						</ul>
+					</div>
+					<div class="message_con">
+						<div class="title_insert" style="display:none;">
+							<input type="text" class="title_input" placeholder="제목을 입력하세요."/>
+						</div>
+						<div class="gwang_insert" style="display:none;">
+							<span>(광고)</span> <span id="shop_name" data-r-widget="display_name"></span>
+						</div>
+						<div class="img_insert" style="display:none;">
+
+						</div>
+						<div class="message_insert">
+							<textarea id="real_content" placeholder="내용을 입력해 주세요."></textarea>
+						</div>
+						<div class="telnone_insert" style="display:none;">
+							<span>무료 수신거부 :</span> <span>080-881-7403</span>
+						</div>
+					</div>
+
+					<div class="letter_number">
+						<span>발신번호 :</span> <span data-r-widget="sms_telephone" id="sms_telephone">02-000-0000</span>
+					</div>
+
+					<div class="send_select_form tab-contents">
+						<ul class="tab_menu" id="msg_kind">
+							<li id="con1" class="on">즉시전송</li>
+							<li id="con2">예약전송</li>
+						</ul>
+
+						<div  class="conBox on">
+							<div class="send_style_form">
+								<div class="ms_tbl send_info">
+									<div class="ms_tbl_row" id="date_area">
+										<div class="ms_tbl_cell"><span class="focus_red">*</span>날짜</div>
+										<div class="ms_tbl_cell"><input type="text" readonly /></div>
+									</div>
+									<div class="ms_tbl_row">
+										<div class="ms_tbl_cell"><span class="focus_red">*</span>발송 요청 건수</div>
+										<div class="ms_tbl_cell"><input type="text" id="send_count" readonly /></div>
+									</div>
+								</div>
+								<div class="send_input_form_box">
+									<div class="ms_tbl send_input_form" id="new_number_list">
+										<div class="ms_tbl_row">
+											<div class="ms_tbl_cell">직접입력</div>
+											<div class="ms_tbl_cell"><input type="text" id="new_list_mobile" placeholder="번호만 입력해 주세요." /></div>
+											<div class="ms_tbl_cell" id="new_list_drop"><span>삭제</span></div>
+										</div>
+									</div>
+								</div>
+								<div class="send_input_insert">번호추가</div>
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="message_btn">
+						<div class="tamp_btn">
+							<span>템플릿 저장</span>
+						</div>
+						<div class="send_btn">
+							<span>전송하기</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="message_info_form">
+					<div class="info_select_form tab-contents02">
+						<ul class="tab_menu">
+							<li data-id="con3" class="on">주의사항</li>
+							<li data-id="con4" id="member_list">회원목록</li>
+							<li data-id="con5" id="use_list">사용내역</li>
+							<li data-id="con6" id="setting_btn">환경설정</li>
+						</ul>
+
+						<div id="con3" class="conBox on">
+							<div class="message_precautions">
+								<div class="precautions_title">문자 사용전 꼭 확인해주세요!</div>
+								<ul class="dot_list">
+									<li>문자사용전 테스트 발송을 해 보신후, 사용을 권장 드립니다.</li>
+									<li>아래의 주의사항을 읽어보신후, 사용을 권장 드립니다.</li>
+								</ul>
+
+								<div class="message_gwang_guide">
+									<div class="gwang_guide_title">예약문자</div>
+									<div class="gwang_guide_txtBx">예약문자는 보내시는 현재시간 기준 10분 이후로 시간설정이 가능합니다.</div>
+								</div>
+
+								<div class="message_gwang_guide">
+									<div class="gwang_guide_title">발송제한</div>
+									<div class="gwang_guide_txtBx">광고전송가이드를 지키지 않으실시 발송제한이 되는 경우가 발생하실수 있습니다.</div>
+									<ul class="dot_list">
+										<li>불법스팸 문자는 가이드 준수와 상관없이 발송제한 됩니다.</li>
+										<li>발송제한된 전화번호는 향후에도 사용 하실 수 없습니다.</li>
+									</ul>
+									<div class="guide_focus_text">광고문자를 전송하실 경우에는 반드시 아래 내용이 포함 되어야 합니다.</div>
+									<div class="gwang_guide_leftBx">
+										<ul>
+											<li>(광고)<br>*[광고], <광고>, 광고 안됨</li>
+											<li>업체명<br>*문자 발송자의 회사명 또는 브랜드명 등 발송자가 누군지 알수 있는 문구를 반드시 포함</li>
+											<li>080무료수신거부 전화<br>*무료수신거부와 무료거부 문구만 허용되며 수신거부, 거부 문구는 허용되지 않음</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="message_gwang_guide">
+									<div class="gwang_guide_title">광고문자란?</div>
+
+									<div class="guide_focus_text">매장 또는 웹사이트 등 업체의 방문을 유도하는 모든 문자를 광고문자라고 합니다.</div>
+									<div class="gwang_guide_leftBx2">
+										<ul class="dot_list">
+											<li>최근 6개월 이내에 거래관계가 있는 고객에게는 별도의 수신동의를 받지 않아도 광고문자전송이 가능합니다.<br>배달음식 주문, 마트 포인트카드 생성 등을 통해 수집한 전화번호에 대해 발송 가능합니다.</li>
+											<li>6개월이 지난 고객에게는 별도의 수신동의를 거친 후 에 문자발송 가능합니다.<br>수신동의 문자란 업체에서 수신동의 문자를 보내고 수신동의철회를 하지 않으면 향후에도 문자발송을 하겠다는 내용을 말합니다.<br>[귀하는 2020년 1월 1일에 문자수신을 동의했습니다. 향후 문자를 수신하지 않길 원하시면 수신동의철회요청을 해주시기 바랍니다.]</li>
+											<li>수신동의를 받았다고 하더라도 2년이 경과하면 다시 수신동의 확인을 받아야 합니다.</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="message_pay_guide">
+									<div class="pay_guide_title">문자 표</div>
+									<div class="ms_tbl">
+										<div class="ms_tbl_row">
+											<div class="ms_tbl_cell"></div>
+											<div class="ms_tbl_cell">단문(SMS)</div>
+											<div class="ms_tbl_cell">장문(LMS)</div>
+											<div class="ms_tbl_cell">이미지(MMS)</div>
+										</div>
+										<div class="ms_tbl_row">
+											<div class="ms_tbl_cell">입력내용 용량</div>
+											<div class="ms_tbl_cell">90byte</div>
+											<div class="ms_tbl_cell">2000byte</div>
+											<div class="ms_tbl_cell">이미지 + 2000byte</div>
+										</div>
+										<div class="ms_tbl_row">
+											<div class="ms_tbl_cell">용량기준</div>
+											<div class="ms_tbl_cell">한글기준 45글자</div>
+											<div class="ms_tbl_cell">한글기준 1000글자</div>
+											<div class="ms_tbl_cell">이미지 + 한글기준 1000글자</div>
+										</div>
+										<div class="ms_tbl_row">
+											<div class="ms_tbl_cell">금액</div>
+											<div class="ms_tbl_cell">건당 10원</div>
+											<div class="ms_tbl_cell">건당 30원</div>
+											<div class="ms_tbl_cell">건당 60원</div>
+										</div>
+										<div class="ms_tbl_row">
+											<div class="ms_tbl_cell">제목</div>
+											<div class="ms_tbl_cell">사용불가</div>
+											<div class="ms_tbl_cell">최대 44byte</div>
+											<div class="ms_tbl_cell">최대 44byte</div>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+
+						<div id="con4" class="conBox" data-r-role="user">
+							<div class="message_addr_form">
+								<div class="addr_search_form">
+									<div class="ms_tbl">
+										<div class="ms_tbl_row">
+											<div class="ms_tbl_cell">
+												<select data-r-field="select_search_key" id="member_select" data-r-field-class="input_search">
+													<option value="all">조건선택</option>
+													<option value="name">이름</option>
+													<option value="user_code">전화번호</option>
+												</select>
+											</div>
+											<div class="ms_tbl_cell">
+												<input type="text" data-r-field="search" id="member_search_value" data-r-field-class="input_search"></input>
+											</div>
+											<div class="ms_tbl_cell" id="member_search" data-r-field="submit_search">검색</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="addr_list_form" >
+									<div class="ms_tbl" data-r-field="list" id="join_list">
+
+
+
+									</div>
+
+
+								</div>
+								<div class="addr_list_input_btn">등록</div>
+							</div>
+						</div>
+
+						<div id="con5" class="conBox">
+							<div class="message_use_list">
+								<div class="search_form">
+									<div class="date_search_box ms_tbl">
+										<div class="ms_tbl_row">
+											<div class="calrendar_input ms_tbl_cell"><input type="date" id="start_date"   /></div>
+											<!--<div class="calrendar_btn"><img src="images/calrendar-icon.png"  ></div>-->
+											<div class="calrendar_txt ms_tbl_cell">~</div>
+											<div class="calrendar_input ms_tbl_cell"><input type="date" id="end_date" /></div>
+											<!--<div class="calrendar_btn"><img src="images/calrendar-icon.png"></div>-->
+											<div class="input_search_btn ms_tbl_cell" id="use_serach_btn">
+												<div class="serach_btn">검색</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="ms_tbl" id="use_list_area">
+
+
+
+
+								</div>
+							</div>
+						</div>
+
+						<div id="con6" class="conBox">
+							<div class="message_setting_form">
+								<div class="message_setting_title">자동문자 설정<img src="../images/question_icon.png" class="ms_info_btn"/></div>
+								<div class="birth_setting">
+									<ul>
+										<li><span class="birth_setting_title">생일문자</span></li>
+										<li class="birth_on">
+											<label class="switch">
+												<input type="checkbox">
+												<span class="slider round" id="birth_on_off"><span class="slide_cycle"></span></span>
+											</label>
+											<p id='birth_off_btn'>OFF</p><p id='birth_on_btn' style="display:none;">ON</p>
+										</li>
+										<li><span class="birth_insert_setting_btn">상세설정</span></li>
+									</ul>
+								</div>
+
+								<div class="find_setting">
+									<ul>
+										<li><span class="find_setting_title">방문문자</span></li>
+										<li class="find_on">
+											<label class="switch">
+												<input type="checkbox">
+												<span class="slider round" id="visit_on_off"><span class="slide_cycle2"></span></span>
+											</label>
+											<p id='visit_off_btn'>OFF</p><p id='visit_on_btn' style="display:none;">ON</p>
+										</li>
+										<li><span class="find_insert_setting_btn">상세설정</span></li>
+									</ul>
+
+								</div><!--방문문자 end-->
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+				<div class="message_pop" style="display:none;">
+					<div class="message_pop_con">
+						<!--이미지 등록 팝업-->
+						<div class="img_pop_con" style="display:none;">
+						<div class="img_title">사진첨부</div>
+						<div class="insert_img">
+							<div class="insert_img_txt">
+								<ul>
+									<li>※ 기본으로 제공되는 이벤트성 이미지 입니다.</li>
+									<li>※ 다른 이미지를 사용하실 경우 아래 이미지 업로드를 이용해 주세요.</li>
+									<li>※ 이미지는 640x388 사이즈를 권장하며 최대900Kbyte 까지 첨부 가능합니다.</li>
+								</ul>
+							</div>
+							<div class="insert_img_con">
+								<ul>
+									<li>
+										<input type="radio" name="insert_img" id="insert_img01" value="1" />
+										<label for="insert_img01">
+											<img src="../images/sale_coupon_img01.jpg"/>
+										</label>
+									</li>
+									<li>
+										<input type="radio" name="insert_img" id="insert_img02" value="2"/>
+										<label for="insert_img02">
+											<img src="../images/sale_event_img01.jpg"/>
+										</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="upload_img">
+							<label for="upload_file">업로드</label>
+							<input type="file" name="upload_file" id="upload_file" class="upload-hidden" onchange="javascript: document.getElementById('upload_name').value = this.value">
+							<input class="upload-name" value="파일명" id="upload_name" disabled="disabled" >
+						</div>
+
+						<div class="pop_btn_box">
+							<div class="pop_close_btn">
+								취소
+							</div>
+							<div class="pop_insert_btn">
+								등록
+							</div>
+						</div>
+					</div>
+					<!--이미지 등록 팝업 end-->
+
+					<!--템플릿 저장 확인-->
+					<div class="tamp_insert_ok" style="display:none;">
+						<div class="tamp_ok_txt">템플릿이 저장되었습니다.<br>상단 템플릿 텝을 클릭하여 확인해 보실수 있습니다.</div>
+						<div class="pop_ok_btn">
+							확인
+						</div>
+					</div>
+					<!--템플릿 저장 확인 end-->
+
+					<!--전송하기 클릭 팝업-->
+					<div class="send_ok_pop" style="display:none;">
+						<div class="send_pop_title">전송하기</div>
+						<div class="send_insert_summery">
+              <div class="insert_title">입력한 제목이 나타남</div>
+              <div class="insert_image"></div>
+							<div class="insert_gwang">(광고)</div>
+							<div class="insert_summery">입력한 내용</div>
+							<div class="insert_telnone">무료수신거부 : <span>080-881-7403</span></div>
+							<div class="insert_telnum">발신번호 : <span data-r-widget="sms_telephone" id="send_sms_telephone">02-0000-0000</span></div>
+						</div>
+						<div class="send_pop_total">
+							<ul>
+								<li>총 건수 : <span id="telephone_list_count"></span>건</li>
+								<li id="reservation_li">전송 시간 : <span id="reservation_time">2020-01-16 00:00</span></li>
+							</ul>
+						</div>
+						<div class="send_pop_list">
+							<div class="ms_tbl" id="telephone_list_area">
+								<div class="ms_tbl_row">
+									<div class="ms_tbl_cell">이름</div>
+									<div class="ms_tbl_cell">번호</div>
+                  <div class="ms_tbl_cell">삭제</div>
+								</div>
+								<div class="ms_tbl_row">
+									<div class="ms_tbl_cell">이름</div>
+									<div class="ms_tbl_cell">번호</div>
+                  <div class="ms_tbl_cell"><span class="user_delete">삭제</span></div>
+								</div>
+							</div>
+						</div>
+						<div class="pop_btn_box">
+							<div class="pop_close_btn">
+								취소
+							</div>
+							<div class="pop_send_btn">
+								전송
+							</div>
+						</div>
+					</div>
+					<!--전송하기 클릭 팝업 end-->
+
+					<div class="pop_send_ok" style="display:none;">
+						<div class="tamp_ok_txt">전송하였습니다.</div>
+						<div class="pop_ok_btn">
+							확인
+						</div>
+					</div>
+
+					<!----템플릿 팝업----->
+					<div class="tamp_pop_con" style="display:none;">
+						<div class="tamp_pop_title">템플릿</div>
+						<div class="tamp_pop_close"><img src="../images/close_btn.png"/></div>
+						<ul class="tamp_list">
+
+						</ul>
+					</div>
+					<!----템플릿 팝업 end----->
+
+					<!----사용내역 팝업----->
+					<div class="use_pop_con" style="display:none;">
+						<div class="use_pop_title">문자 사용내역</div>
+						<div class="use_message_form">
+							<div class="use_con">
+
+								<div class="use_insert_title">입력한 제목이 나타남</div>
+								<div class="use_insert_image"></div>
+								<div class="use_insert_summery">입력한 내용</div>
+								<div class="use_insert_telnum">발신번호 : <span data-r-widget="sms_telephone" id="use_sms_telephone">02-0000-0000</span></div>
+							</div>
+						</div>
+						<div class="use_total_form">
+							<ul>
+								<li>총 건수 : <span id="use_all_count">0</span></li>
+								<li>성공 : <span id="use_success__count">0</span></li>
+								<li>실패 : <span id="use_error_count">0</span></li>
+								<li>대기 : <span id="use_waiting_count">0</span></li>
+							</ul>
+						</div>
+						<div class="use_send_list">
+							<div class="ms_tbl" id="use_check_list_area">
+
+
+
+							</div>
+						</div>
+						<div class="pop_btn_box">
+							<div class="pop_close_btn">
+								닫기
+							</div>
+							<div class="use_delete_btn">
+								예약취소
+							</div>
+						</div>
+					</div>
+
+						<!---자동문자설정 상세설명 팝업--->
+						<div class="ms_setting_pop_con" style="display:none;">
+							<div class="ms_setting_title">자동문자 설정이란?</div>
+							<div class="pop_gray_box">
+								자동문자 설정이란 생일, 방문일을 설정하여 자동적으로 문자 서비스를 제공하는 시스템 입니다.
+							</div>
+
+							<div class="ms_setting_info">
+								<ul>
+									<li>※ 화면의 ON/OFF를 이용하여 편리하게 자동 설정을 할 수 있습니다.</li>
+									<li>※ ON상태에서는 설정하신 문자를 자동적으로 전송하게 됩니다.</li>
+									<li>※ OFF상태에서는 자동문자 기능을 중지상태로 변경할 수 있습니다.</li>
+									<li>※ 상세설정을 클릭하여 문자 문구, 보내는 시간을 설정하여 사용할 수 있습니다.</li>
+									<li>※ 이벤트성 이미지는 하나만 등록이 가능합니다.</li>
+									<li>※ (광고), 무료 수신거부, 가맹점 이름은 필수 항목으로 들어가며 문자에서 따로 삭제할 수 없습니다.</li>
+									<li>※ 방문문자 시간설정은 마지막 방문일을 기준으로 전송되게 됩니다.</li>
+								</ul>
+							</div>
+							<div class="pop_close_btn">
+								닫기
+							</div>
+						</div>
+
+						<!--생일문자 상세설정 pop-->
+						<div class="birth_insert_setting_box" style="display:none;">
+							<div class="birth_insert_box">
+								<div class="birth_insert">
+									<div class="necessary_txt">(광고)<span id="birth_shop_name"></span></div>
+									<div class="ms_insert">
+										<div class="birth_insert_img">
+
+										</div>
+										<div class="birth_insert_txt">
+											<textarea placeholder="내용을 입력해 주세요." id="birth_textarea"></textarea>
+										</div>
+									</div>
+									<div class="necessary_txt">무료 수신거부 : <span>080-881-7403</span></div>
+								</div>
+							</div>
+							<div class="birth_time_box">
+								<div class="birth_img_insert">
+									<div class="upload_img">
+										<label for="birth-file">업로드</label>
+										<input type="file" id="birth-file" class="upload-hidden" name="birth_file" onchange="javascript: document.getElementById('birth_file_name').value = this.value">
+										<input class="upload-name" id="birth_file_name" value="파일명" disabled="disabled" >
+									</div>
+									<div class="birth_img_insert_btn">
+										<div class="inser_img_delete" id='birth_img_delete_btn'><span>이미지 삭제</span></div>
+										<!-- <div class="bt_img_insert"><span>이미지 등록</span></div> -->
+									</div>
+								</div>
+
+								<div class="birth_date_setting">
+									<div class="date_setting_title">시간설정</div>
+									<div class="date_select">
+										<select id="birth_si_select">
+											<option value="">시간 선택</option>
+											<option>10</option>
+											<option>11</option>
+											<option>12</option>
+											<option>13</option>
+											<option>14</option>
+											<option>15</option>
+											<option>16</option>
+											<option>17</option>
+											<option>18</option>
+											<option>19</option>
+											<option>20</option>
+										</select>
+
+										<select id="birth_mm_select">
+											<option value="">분 선택</option>
+											<option>00</option>
+											<option>05</option>
+											<option>10</option>
+											<option>15</option>
+											<option>20</option>
+											<option>25</option>
+											<option>30</option>
+											<option>35</option>
+											<option>40</option>
+											<option>45</option>
+											<option>50</option>
+											<option>55</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="set_btn_box">
+									<div class="set_close_btn">닫기</div>
+									<div class="set_ok_btn" id="birth_insert_btn">저장하기</div>
+								</div>
+
+							</div>
+						</div>
+						<!--생일문자 pop end-->
+						<!--방문문자 상세설정 pop-->
+						<div class="find_insert_setting_box" style="display:none;">
+							<div class="find_insert_box">
+								<div class="find_insert">
+									<div class="necessary_txt">(광고) <span id="visit_shop_name"></span></div>
+									<div class="ms_insert">
+										<div class="find_insert_img">
+
+										</div>
+										<div class="find_insert_txt">
+											<textarea id="visit_textarea" placeholder="내용을 입력해 주세요."></textarea>
+										</div>
+									</div>
+									<div class="necessary_txt">무료 수신거부 : <span>080-881-7403</span></div>
+								</div>
+							</div>
+							<div class="find_time_box">
+								<div class="find_img_insert">
+									<div class="upload_img">
+										<label for="visit-file">업로드</label>
+										<input type="file" id="visit-file" class="upload-hidden" name="visit_file" onchange="javascript: document.getElementById('visit_file_name').value = this.value">
+										<input class="upload-name" value="파일명" id="visit_file_name" disabled="disabled" >
+									</div>
+									<div class="find_img_insert_btn">
+										<div class="inser_img_delete" id='visit_img_delete_btn'><span>이미지 삭제</span></div>
+										<!-- <div class="bt_img_insert"><span>이미지 등록</span></div> -->
+									</div>
+								</div>
+
+								<div class="find_date_setting">
+									<div class="date_setting_title">시간설정</div>
+									<div class="date_select">
+										<select id="visit_date_select">
+											<option value="">날짜 선택</option>
+											<option value="7">7일</option>
+											<option value="15">15일</option>
+											<option value="30">1개월</option>
+											<option value="30">3개월</option>
+											<option value="180일">6개월</option>
+											<option value="365">1년</option>
+										</select>
+										<select id="visit_si_select">
+											<option value="">시간 선택</option>
+											<option>10</option>
+											<option>11</option>
+											<option>12</option>
+											<option>13</option>
+											<option>14</option>
+											<option>15</option>
+											<option>16</option>
+											<option>17</option>
+											<option>18</option>
+											<option>19</option>
+											<option>20</option>
+										</select>
+
+										<select id="visit_mm_select">
+											<option value="">분 선택</option>
+											<option>00</option>
+											<option>05</option>
+											<option>10</option>
+											<option>15</option>
+											<option>20</option>
+											<option>25</option>
+											<option>30</option>
+											<option>35</option>
+											<option>40</option>
+											<option>45</option>
+											<option>50</option>
+											<option>55</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="set_btn_box">
+									<div class="set_close_btn">닫기</div>
+									<div class="set_ok_btn" id="visit_insert_btn">저장하기</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</diV>
+			</div>
+		</div><!---ccontetns end--->
+	</div><!------wrap end------->
+
+</body>
+</html>

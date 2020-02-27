@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>가맹점 로그인</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!--font-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="css/common.css">
+
+    <!-- jQuery & jQuery UI + theme (required) -->
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <script src="js/jquery-ui-custom.min.js"></script>
+    <!-- keyboard widget css & script (required) -->
+    <link href="css/keyboard-basic.css" rel="stylesheet">
+    <script src="js/jquery.keyboard.js"></script>
+    <!-- keyboard extensions (optional) -->
+    <script src="js/jquery.mousewheel.js"></script>
+
+    <script>
+      $(function(){
+        $('#user_id').keyboard({
+             autoAccept: true
+        });
+      });
+      $(function(){
+        $('#user_pw').keyboard({
+          autoAccept: true
+        });
+      });
+    </script>
+    <script>
+    $(document).ready(function(){
+    $('#login_btn').click(function(){
+      var user_id = $('#user_id').val();
+      var user_pw = $('#user_pw').val();
+      var submit_data = '{"user_id":"'+user_id+'","user_password":"'+user_pw+'"}';
+      $.ajax({
+           url:'https://piick.co.kr',
+           type:'post',
+           data:{"_action":"sign_in","_plugin":"user","_submit_data":submit_data},
+           success:function(data){
+              console.log(data);
+              sessionStorage.setItem('item',JSON.stringify(data));
+              if(data['code'] == 000){
+                if(data['list'][0]['user_type'] != 'member_shop'){
+                    alert('가맹점계정이 아닙니다.');
+					location.reload()
+                    return false;
+                }else{
+                    location.href='sub/pos_menu.html'
+                }
+              }else if(data['code'] == 100){
+                  alert('아이디 또는 비밀번호가 틀렸습니다.');
+				  location.reload()
+                  return false;
+              }else{
+                  alert(data['message']);
+				  location.reload()
+                  return false;
+              }
+           }
+       })
+    })
+    })
+    </script>
+</head>
+
+<body>
+	<div id="wrap">
+		<div class="login_contents">
+			<div class="login_con_top">
+				<div class="logo_box"><img src="images/admin_logo.png"/></div>
+				<div class="login_form">
+					<div class="login_input_box">
+						<div class="id_input"><input type="text" id="user_id" placeholder="아이디"  placeholder="아이디" required=""/></div>
+						<div class="pass_input"><input type="password" id="user_pw" placeholder="비밀번호" title="비밀번호 입력" placeholder="비밀번호" required=""/></div>
+					</div>
+					<div class="login_btn" id="login_btn">로그인</div>
+				</div>
+			</div>
+			<div class="login_con_bottom" >
+
+			</div>
+		</div><!---ccontetns end--->
+	</div><!------wrap end------->
+
+</body>
+</html>

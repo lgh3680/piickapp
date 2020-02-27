@@ -1,0 +1,63 @@
+html, body {height: 100%;}
+.btn {
+    width: 100%;
+    height: 60px;
+    line-height: 58px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #174672;
+    text-align: center;
+    margin: 20px 0 0 0;
+    border: 0;
+    outline: 0;
+    -webkit-outline: 0;
+    cursor: pointer;
+}
+.btn-line {
+    width: 100%;
+    height: 60px;
+    line-height: 58px;
+    display: block;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #174672;
+    background: transparent;
+    text-align: center;
+    margin: 20px 0 0 0;
+    outline: 0;
+    -webkit-outline: 0;
+    cursor: pointer;
+}
+
+.memberStoreLogin {height: 100%;}
+.memberStoreLogin > div {height: 100%;}
+.memberStoreLogin .memberStoreLogin__center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.memberStoreLogin .memberStoreLogin__center h4 {
+    font-size: 30px;
+    margin: 25px 0;
+}
+.memberStoreLogin .memberStoreLogin__center .input_inner {
+    text-align: center;
+}
+.memberStoreLogin .memberStoreLogin__center .input_inner div {margin: 15px 0;}
+.memberStoreLogin .memberStoreLogin__center .input_inner input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #333;
+    padding: 0 0 0 10px;
+    box-sizing: border-box;
+}
+.memberStoreLogin .memberStoreLogin__center .checkbox__inner input[type="checkbox"] {
+    width: 20px;
+    -webkit-appearance: checkbox;
+    appearance: checkbox;
+}

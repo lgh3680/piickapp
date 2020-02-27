@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>가맹점 포인트</title>
+	<!--font-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/contents.css">
+    <!-- scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/pos_point_list.js"></script>
+  <!-- jQuery & jQuery UI + theme (required) -->
+   <link href="../css/jquery-ui.min.css" rel="stylesheet">
+   <script src="../js/jquery-ui-custom.min.js"></script>
+   <!-- keyboard widget css & script (required) -->
+   <link href="../css/keyboard-basic.css" rel="stylesheet">
+   <script src="../js/jquery.keyboard.js"></script>
+   <!-- keyboard extensions (optional) -->
+   <script src="../js/jquery.mousewheel.js"></script>
+   <script type="text/javascript">
+   $(function(){
+      $('#search_value').keyboard({
+           autoAccept: true
+      });
+  });
+   </script>
+
+</head>
+<body>
+	<div id="wrap">
+		<div class="header">
+			<ul>
+				<li class="logo_box"><a href="pos_menu.html"><img src="../images/pos_logo.png"/></a></li>
+				<li class="menu_btn_box"><a href="pos_menu.html"><img src="../images/menu_btn.png"/></a></li>
+			</ul>
+		</div>
+		<div class="contents">
+			<div class="point_list_form">
+				<div class="point_list_box">
+					<div class="main_title">적립/사용이력</div>
+					<div class="point_tab">
+						<ul>
+							<li class="tab_on" value="point_save">적립</li>
+							<li value="point_use">사용</li>
+							<li value="point_cancel">취소</li>
+						</ul>
+            <input type="hidden" class="point_status"  value="point_save" />
+					</div>
+					<div class="point_list_search_form">
+						<div class="point_tbl">
+							<ul class="point_row">
+								<li class="point_cell search_input">
+									<input type="date" id="start_date" class="number_input"  />
+								</li>
+								<li class="point_cell date_icon">
+									<img src="../images/calrendar-icon.png"/>
+								</li>
+								<li class="point_cell search_txt"> ~ </li>
+								<li class="point_cell search_input">
+									<input type="date" id="end_date"  class="number_input"  />
+								</li>
+								<li class="point_cell date_icon">
+									<img src="../images/calrendar-icon.png"/>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="point_list_input_search">
+						<div class="input_search_form point_tbl">
+							<ul class="point_row">
+								<li class="point_cell select_form">
+									<select id="search_select">
+										<option value="all">조건선택</option>
+										<option value="name">이름</option>
+										<option value="user_code">핸드폰 번호</option>
+									</select>
+								</li>
+								<li class="point_cell search_input_form">
+									<input type="text" class="number_input" id="search_value"/>
+								</li>
+								<li class="point_cell search_btn_form"><span class="search_btn">검색</span></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="point_list_total_form">
+						<div class="point_tbl">
+							<ul class="point_row">
+								<li class="point_cell"><span class="total_txt">총 포인트 : <span id="points_sum">0</span>P</span></li>
+								<li class="point_cell"><span class="total_txt">총 캐시 : <span id="amount_sum">0</span>원</span></li>
+								<li class="point_cell"><span class="total_txt">총 발행건수 : <span id="point_count">0</span>회</span></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="point_graph_form">
+						<div class="graph_btn">
+							<div class="overview_btn">크게보기</div>
+							<div class="reflash_btn" style="display:none;">되돌리기</div>
+						</div>
+						<div class="point_graph_box">
+							<div class="point_tbl" id="list_area">
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!---ccontetns end--->
+	</div><!------wrap end------->
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+body{width:100%;margin:0 auto;max-width:540px;}
+.memberStorePoint{max-width:540px;}
+.action-btn {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    background-color: rgb(179, 179, 179);
+    text-align: center;
+    margin: 20px 0 0 0;
+    border: 0;
+    outline: 0;
+    -webkit-outline: 0;
+    cursor: pointer;
+}
+
+.memberStorePoint__inner {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 40px;
+}
+
+.memberStorePoint .point_issue_money {margin-top: 10px;width:100%;overflow:hidden}
+.memberStorePoint .tit {
+    font-size: 18px;
+	padding-bottom:10px;
+	border-bottom:2px solid #174672;
+	margin-bottom:10px;
+	color:#333;
+}
+
+.memberStorePoint__inner .clearfix{width:100%;overflow:hidden;padding-bottom:10px;}
+.memberStorePoint__inner .clearfix .phone_name{font-size: 16px;color:#333;font-weight:500;padding:7px 0 10px 0px;width:100%;}
+.memberStorePoint__inner .clearfix .P_input_Bx{width:100%;}
+
+
+
+.memberStorePoint {height: 100%;}
+.memberStorePoint > div {height: 100%;}
+.memberStorePoint .phone_input_option {
+	width:20%;
+    height: 30px;
+    display: inline-block;
+    padding-left: 10px;
+    box-sizing: border-box;
+    /*border: 1px solid #d4d4d4;*/
+	border:1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	background-image:url(../images/down_btn.png);
+	background-repeat:no-repeat;
+	background-position:90% 50%;
+	margin-right:5px;
+}
+.memberStorePoint .phone_input {
+    width: 30%;
+    height: 30px;
+    display: inline-block;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border:1px solid #ddd;
+	border-radius: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+.point_issue_title{font-size: 16px;color:#333;font-weight:500;padding:7px 0 10px 0px;width:100%;}
+.pay_select{width:100%;margin-top:10px;}
+.pay_select ul{width:100%;overflow:hidden;}
+.pay_select ul li{width:20%;float:left;text-align:center;padding:5px 3px 5px 3px;box-sizing:border-box;}
+.pay_choice{height:100%;font-size:14px;font-weight:600;width:100%;padding:7px 0;border:1px solid #7a92a8;box-sizing:border-box;color:#333;}
+
+.Issue_input::placeholder{color:#777;}
+
+.memberStorePoint .point_issue_money input {
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border: 1px solid #d4d4d4;
+    text-align: right;
+	border-radius:5px;
+	padding:0 10px 0 0;
+
+}
+.pay_btn{width:100%;font-size:18px;background:#174672;color:#fff;padding:10px 0;box-sizng:border-box;border:0px;font-weight:600;border-radius:50px;}
+.memberStorePoint .point_userd {margin-top: 30px;}
+.memberStorePoint .point_userd .filename {width: 100%; display: inline-block; padding: 5px 50px 5px 10px ; box-sizing: border-box; border: 1px solid #d4d4d4; color: #eee; vertical-align: middle;}
+
+.memberStorePoint .point_userd label { width: 100%; vertical-align: middle; display: inline-block; margin-top: 0;}
+
+.memberStorePoint .point_userd .text__inner {margin-top: 20px; font-size: 18px;}
+.memberStorePoint .my_order {margin-top: 50px;}
+.memberStorePoint .my_order h3 {font-size: 20px;color:#333;padding:0 0 10px 0;box-sizing:border-box;}
+.memberStorePoint .my_order ul li {text-align: center; border-bottom: 1px solid rgb(201, 201, 201); padding: 10px 0; box-sizing: border-box; font-weight: 600;}
+.memberStorePoint .my_order ul li .my_tbl {display: flex;}
+.memberStorePoint .my_order ul li .my_tbl div{width: 33.33333%; float: left;}
+.memberStorePoint button {margin-top: 20px;}
+
+
+.pop_up {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.pop_up .pop_up--inner {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: #fff;
+}
+
+.pop_up .pop_up--inner .pop_up--wrap {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.pop_up .pop_up--inner .confirm {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    cursor: pointer;
+}
+.pop_up .pop_up--inner .confirm .confirm-cancell {
+    width: 50%;
+    float: left;
+    padding: 10px;
+    background: #ededed;
+    box-sizing: border-box;
+}
+.pop_up .pop_up--inner .confirm .confirm-confirming {
+    width: 50%;
+    float: left;
+    padding: 10px;
+    background: #3d435e;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+
+@media (min-width: 768px) {
+    .memberStorePoint .point_userd .filename {width: 187px;}
+}
+
+@media (min-width: 768px) {
+    .memberStorePoint .point_userd label {width: 150px;}
+}
+
+
+.tbl-Bx{display:table;width:100%;border-top:2px solid #ccc;}
+.tbl-row{display:table-row;}
+.tbl-cell{display:table-cell;text-align:center;padding:10px 10px;border-bottom:1px solid #ddd;font-size:14px;vertical-align:middle;}
+.t-head{background:#f1f1f1;}
+.tw01{width:40%;}
+.tw02{width:30%;}
+.tw03{width:30%;}
+
+.out_btn{width:100%;border:2px solid #174672;background:#fff;padding:10px;font-size:18px;font-weight:600;border-radius:100px;}

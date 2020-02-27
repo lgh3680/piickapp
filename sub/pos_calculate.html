@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>가맹점 포인트</title>
+	<!--font-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/contents.css">
+    <!-- scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/pos_calculate.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<div class="header">
+			<ul>
+				<li class="logo_box"><a href="pos_menu.html"><img src="../images/pos_logo.png"/></a></li>
+				<li class="menu_btn_box"><a href="pos_menu.html"><img src="../images/menu_btn.png"/></a></li>
+			</ul>
+		</div>
+		<div class="contents">
+			<div class="calculate_form">
+				<div class="calculate_total_form">
+					<div class="main_title">정산관리</div>
+					<div class="cal_total_box">
+						<div class="cal_point_form">
+							<div class="cal_point">
+								보유포인트 <span id="points">0</span> P
+							</div>
+							<div class="cal_coin">
+								보유캐시 <span id="amount">0</span> 원
+							</div>
+						</div>
+
+						<div class="expected_form">
+							<div class="expected_title_box">
+								<div class="expected_title">결제예정금액</div>
+								<div class="expected_pay"><span id="sum_amount">0</span> 원</div>
+							</div>
+							<div class="expected_date_form">
+                <input type="hidden" id="schedule_start_date" /><input type="hidden" id="schedule_end_date" />
+								<div class="expected_date">납부일시 : <span id="schedule_tuesday_date">2020-01-07</span></div>
+								<div class="expected_btn">상세보기</div>
+							</div>
+						</div>
+						<div class="unpaid_form">
+							<div class="unpaid_title_box">
+								<div class="unpaid_title">결제미납금액</div>
+								<div class="unpaid_pay"><span id="unpaid_amount">0</span> 원</div>
+							</div>
+							<div class="unpaid_date_form">
+                <input type="hidden" id="unpaid_start_date" /><input type="hidden" id="unpaid_end_date" />
+								<div class="unpaid_date">미납일시 : <span id="unpaid_tuesday_date">2020-01-07</span></div>
+								<div class="unpaid_btn">상세보기</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="calculate_graph_form">
+					<div class="point_list_search_form" style="display:none;">
+						<div class="point_tbl">
+							<ul class="point_row">
+								<li class="point_cell search_input">
+									<input type="date" class="number_input" id="start_date" />
+								</li>
+								<li class="point_cell date_icon">
+									<img src="../images/calrendar-icon.png"/>
+								</li>
+								<li class="point_cell search_txt"> ~ </li>
+								<li class="point_cell search_input">
+									<input type="date" class="number_input" id="end_date" />
+								</li>
+								<li class="point_cell date_icon">
+									<img src="../images/calrendar-icon.png"/>
+								</li>
+                <li class="point_cell search_btn input_search_btn"><span>검색</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="cal_graph">
+						<div class="point_tbl" id="point_tbl">
+							<div class="point_row">
+								<div class="point_cell">번호</div>
+								<div class="point_cell">캐쉬발행</div>
+								<div class="point_cell">문자사용</div>
+								<div class="point_cell">총 사용금액</div>
+								<div class="point_cell">납부일시</div>
+								<div class="point_cell">상세내역</div>
+                <div class="point_cell">
+                  <select id="status_select">
+                    <option value="all">상태</option>
+                    <option value="unpad">결제미납</option>
+                    <option value="schedule">결제예정</option>
+                    <option value="completion">결제완료</option>
+                  </select>
+                </div>
+							</div>
+
+
+						</div>
+					</div>
+
+					<div class="viwer_btn">크게보기</div>
+					<div class="viwer_back_btn" style="display:none;">되돌리기</div>
+				</div>
+
+				<!--결제예정 금액 팝업-->
+				<div class="pop_form expected_pop" style="display:none;">
+					<div class="pop_con">
+						<div class="pop_con_title" id="detail_title">결제예정금액 상세</div>
+						<div class="expected_pop_date"><span id="detail_start_date">2019-12-20</span> ~ <span id="detail_end_date">2019-12-27</span></div>
+						<div class="expected_pop_graph">
+							<div class="point_tbl" id="expected_pop_tlb">
+
+
+							</div>
+						</div>
+						<div class="pop_close_btn">닫기</div>
+					</div>
+				</div><!---결제예정 end--->
+
+			</div>
+		</div><!---ccontetns end--->
+	</div><!------wrap end------->
+
+</body>
+</html>

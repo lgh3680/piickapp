@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>가맹점 포인트</title>
+	<!--font-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/contents.css">
+    <!-- scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/pos_point_issue.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<div class="header">
+			<ul>
+				<li class="logo_box"><a href="pos_menu.html"><img src="../images/pos_logo.png"/></a></li>
+				<li class="menu_btn_box"><a href="pos_menu.html"><img src="../images/menu_btn.png"/></a></li>
+			</ul>
+		</div>
+		<div class="contents">
+			<div class="point_issue_form">
+				<div class="point_input_form">
+					<div class="main_title">포인트 발행</div>
+					<div class="point_input_box">
+						<div class="sub_title">휴대폰 번호</div>
+						<div class="input_box"><input type="text" class="number_input" id="phone_num"/></div>
+					</div>
+					<div class="point_input_box">
+						<div class="sub_title">발행금액</div>
+						<div class="input_box"><input type="number" class="number_input" id="amount"/></div>
+					</div>
+					<div class="input_btn_box">
+						<ul>
+							<li id="point_button1">5,000</li>
+							<li id="point_button2">10,000</li>
+							<li id="point_button3">30,000</li>
+						</ul>
+						<ul>
+							<li id="point_button4">50,000</li>
+							<li id="point_button5">100,000</li>
+              <li id="point_button6">100,000</li>
+
+						</ul>
+					</div>
+					<div class="point_ok_form">
+						<span class="point_back_btn" id="cancel_btn">이전발행취소</span>
+						<span class="setting_btn">설정</span>
+					</div>
+				</div>
+
+				<div class="point_keypad" >
+					<div class="point_tbl keypad_form" id="keypad">
+						<ul class="point_row">
+							<li class="point_cell keypad_num">1</li>
+							<li class="point_cell keypad_num">2</li>
+							<li class="point_cell keypad_num">3</li>
+						</ul>
+						<ul class="point_row">
+							<li class="point_cell keypad_num">4</li>
+							<li class="point_cell keypad_num">5</li>
+							<li class="point_cell keypad_num">6</li>
+						</ul>
+						<ul class="point_row">
+							<li class="point_cell keypad_num">7</li>
+							<li class="point_cell keypad_num">8</li>
+							<li class="point_cell keypad_num">9</li>
+						</ul>
+						<ul class="point_row">
+							<li class="point_cell keypad_num">00</li>
+							<li class="point_cell keypad_num">0</li>
+							<li class="point_cell keypad_num">000</li>
+						</ul>
+						<ul class="point_row">
+							<li class="point_cell keypad_num keypad_ok" id="point_ok_btn">적립</li>
+							<li class="point_cell keypad_num keypad_delete">취소</li>
+							<li class="point_cell keypad_num">←</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="slide_form">
+					<div class="slide_con">
+						<div class="pop_con_title">발행금액 설정</div>
+						<div class="point_set">
+							<div class="point_input_setting">
+								<ul class="point_prev">
+									<li class="setting_sub_title">현재금액</li>
+									<li id="setting_now_button1">5,000</li>
+									<li id="setting_now_button2">10,000</li>
+									<li id="setting_now_button3">30,000</li>
+									<li id="setting_now_button4">50,000</li>
+									<li id="setting_now_button5">100,000</li>
+                  <li id="setting_now_button6">100,000</li>
+								</ul>
+							</div>
+							<div class="point_input_setting2">
+								<ul class="point_next">
+									<li class="setting_sub_title">수정금액</li>
+									<li><input type="number" class="number_input" id="setting_update_button1"/></li>
+									<li><input type="number" class="number_input" id="setting_update_button2"/></li>
+									<li><input type="number" class="number_input" id="setting_update_button3"/></li>
+									<li><input type="number" class="number_input" id="setting_update_button4"/></li>
+									<li><input type="number" class="number_input" id="setting_update_button5"/></li>
+                  <li><input type="number" class="number_input" id="setting_update_button6"/></li>
+								</ul>
+							</div>
+						</div>
+						<div class="point_setting_btn">
+							<ul>
+								<li class="point_delete_btn">취소</li>
+								<li class="point_input_btn" id="setting_btn">등록</li>
+							</ul>
+						</div>
+						<div class="issue_delete_btn">
+							<span></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="pop_form" style="display:none;">
+					<div class="pop_con wd600 issue_info">
+						<div class="pop_con_title">발행 확인</div>
+						<div class="issue_pop_info">
+							<div>휴대폰번호 : <span id="user_code">010-0000-0000</span></div>
+							<div>발행포인트 : <span id="points">0</span>P</div>
+							<div>발행캐시 : <span id="last_amount">0</span>원</div>
+						</div>
+						<div class="issue_btn_form">
+							<ul>
+								<li class="issue_belete">취소</li>
+								<li class="issue_ok_btn" id="point_btn">발행</li>
+							</ul>
+						</div>
+					</div>
+					<div class="pop_con ok_info" style="display:none;">
+						<div class="ok_info_title">발급되었습니다.</div>
+						<div class="ok_info_check">확인</div>
+					<div>
+				</div>
+			</div>
+		</div><!---ccontetns end--->
+	</div><!------wrap end------->
+
+</body>
+</html>

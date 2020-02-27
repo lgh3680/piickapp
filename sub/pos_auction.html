@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>가맹점 포인트</title>
+	<!--font-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/contents.css">
+    <!-- scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/pos_auction.js"></script>
+  <link href='../node_modules/froala-editor/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+  <!-- jQuery & jQuery UI + theme (required) -->
+   <link href="../css/jquery-ui.min.css" rel="stylesheet">
+   <script src="../js/jquery-ui-custom.min.js"></script>
+   <!-- keyboard widget css & script (required) -->
+   <link href="../css/keyboard-basic.css" rel="stylesheet">
+   <script src="../js/jquery.keyboard.js"></script>
+   <!-- keyboard extensions (optional) -->
+   <script src="../js/jquery.mousewheel.js"></script>
+  <!-- Include JS file. -->
+  <script type="text/javascript" src="../js/nicEdit.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  bkLib.onDomLoaded(function() {
+          new nicEditor({buttonList : ['fontSize','bold','italic','underline','strikeThrough','html','center','left','image','upload']}).panelInstance('description');
+  });
+    //]]>
+
+
+    $(function(){
+      $('#product_name').keyboard({
+           autoAccept: true
+      });
+    });
+    $(function(){
+      $('#cost').keyboard({
+           autoAccept: true
+      });
+    });
+    </script>
+</head>
+<body>
+	<div id="wrap">
+		<div class="header">
+			<ul>
+        <li class="logo_box"><a href="pos_menu.html"><img src="../images/pos_logo.png"/></a></li>
+        <li class="menu_btn_box"><a href="pos_menu.html"><img src="../images/menu_btn.png"/></a></li>
+			</ul>
+		</div>
+		<div class="contents" >
+      <input type="hidden" id="auction_badge" value="true" />
+      <input type="hidden" id="hot_badge" value="false" />
+      <input type="hidden" id="new_badge" value="false" />
+      <input type="hidden" id="category0" value="경매" />
+      <input type="hidden" id="category1" value="가맹점 경매" />
+      <input type="hidden" id="auction_subtraction_point" id="auction_subtraction_point" value="" />
+      <input type="hidden" id="auction_chance" value="1" />
+      <input type="hidden" id="not_for_sale" value="false" />
+      <input type="hidden" id="lowest_price" value="0" />
+      <input type="hidden" id="maximum_payment_point" value="0" />
+      <input type="hidden" id="discount_rate" value="0" />
+      <input type="hidden" id="registration_infomation" value="상세페이지 참조" />
+      <input type="hidden" id="origin_country" value="상세페이지 참조" />
+      <input type="hidden" id="maker" value="상세페이지 참조" />
+      <input type="hidden" id="product_price" value="0" />
+      <input type="hidden" id="auction_status" value="waiting" />
+			<div class="auction_from">
+
+				<div class="auction_tab tab-contents">
+					<ul class="tab_menu">
+						<li data-id="con1" class="on">경매등록</li>
+						<li data-id="con2">경매내역</li>
+					</ul>
+
+					<div id="con1" class="conBox on" >
+						<div class="auction_focus">※ 경매등록전 경매정책을 확인 후 등록해 주시기 바랍니다.</div>
+						<div class="auction_insert">
+							<div class="inesrt_form01 mgt0">
+								<div class="insert_tbl_form">
+									<div class="insert_title">상품/제품명</div>
+									<div class="insert_summery"><input type="text" required id="product_name" placeholder="상품 사이즈까지 포함하여 작성" /></div>
+								</div>
+							</div>
+							<div class="inesrt_form02 mgt0">
+								<div class="insert_tbl_form">
+									<div class="insert_title">제공형태</div>
+									<div class="insert_summery">
+										<select id="provided_type">
+										  <option value="store_use">매장이용</option>
+										  <option value="delivery">상품배송</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="inesrt_form01">
+								<div class="insert_tbl_form">
+									<div class="insert_title">판매가</div>
+									<div class="insert_summery"><input type="text"  id="cost" required placeholder="현재 판매하고 계시는 상품/메뉴 금액 입력"/></div>
+								</div>
+							</div>
+							<div class="inesrt_form02">
+								<div class="insert_tbl_form">
+									<div class="insert_title">입찰최대값</div>
+									<div class="insert_summery"><input type="hidden"  id="auction_minimum_point" value="1"/><input type="text"  readonly id="auction_maximum_point" /></div>
+
+								</div>
+							</div>
+							<div class="inesrt_form01">
+								<div class="insert_tbl_form">
+									<div class="insert_title">경매기간</div>
+									<div class="insert_summery3"><input type="date" required placeholder="시작일자" id="auction_bidding_start_date"/></div>
+									<div class="insert_summery3"><input type="date" required placeholder="종료일자"  id="auction_bidding_end_date"/></div>
+								</div>
+							</div>
+							<div class="inesrt_form02">
+								<div class="insert_tbl_form">
+									<div class="insert_title">유효기간</div>
+									<div class="insert_summery">
+                    <select id="coupon_validity_day" required>
+                      <option value="1">1개월</option>
+                      <option value="2">2개월</option>
+                      <option value="3">3개월</option>
+                      <option value="6">6개월</option>
+                    </select>
+                  </div>
+								</div>
+							</div>
+
+							<div class="inesrt_form01">
+								<div class="insert_tbl_form2">
+									<div class="insert_title">이미지</div>
+									<div class="insert_summery">
+										<div class="insert_img_box">
+											<div class="insert_img_main">
+												<div class="img_box" id="img_box1" ><img id="image0"  alt="" /></div>
+											</div>
+											<div class="insert_img_sub">
+													<div class="img_box" id="img_box2" ><img id="image1"  alt="" /></div>
+											</div>
+										</div>
+										<div class="img_btn_box">
+											<div class="img_delete"><span>이미지 삭제</span></div>
+											<div class="img_delete2"><span>이미지 삭제</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="inesrt_form02">
+								<div class="insert_tbl_form2">
+									<div class="insert_title">상품상세내용</div>
+									<div class="insert_summery"><textarea id="description"></textarea></div>
+
+								</div>
+							</div>
+						</div>
+						<div class="auction_btn_form">
+							<div class="insert_btn">
+								<span>경매정책</span>
+							</div>
+							<div class="auction_btn">
+								<span id="auction_btn">경매등록</span>
+							</div>
+
+
+						</div>
+					</div><!--경매등록 end-->
+
+
+					<div id="con2" class="conBox" >
+						<div class="auction_tbl">
+
+
+						</div>
+
+					</div><!--경매내역 end-->
+          <!-- <div class="pagenation_sec" data-r-include="include_pagination"> -->
+				</div><!--tab-con end-->
+
+			</div><!---auction_form end--->
+		</div><!---ccontetns end--->
+
+		<div class="pop_form" style="display:none;">
+			<div class="pop_con img_insert_pop" id="img_pop1" style="display:none;">
+				<div class="img_pop_con">
+					<div class="img_title">사진첨부</div>
+					<div class="insert_img">
+						<div class="insert_img_txt">
+							<ul>
+								<li>※ 기본으로 제공되는 이벤트성 이미지 입니다.</li>
+								<li>※ 다른 이미지를 사용하실 경우 아래 이미지 업로드를 이용해 주세요.</li>
+								<li>※ 이미지는 500x500 사이즈를 권장하며 최대900Kbyte 까지 첨부 가능합니다.</li>
+							</ul>
+						</div>
+
+					</div>
+					<div class="upload_img">
+						<label for="upload_file">업로드</label>
+						<input type="file" name="upload_file" id="upload_file" class="upload-hidden" onchange="javascript: document.getElementById('upload_name').value = this.value">
+						<input class="upload-name" value="파일명" id="upload_name" disabled="disabled" >
+					</div>
+
+					<div class="pop_btn_box">
+						<div class="pop_close_btn">
+							취소
+						</div>
+						<div class="pop_insert_btn" id="img_btn1">
+							등록
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--이미지 등록 팝업 end-->
+      <div class="pop_con img_insert_pop" id="img_pop2" style="display:none;">
+        <div class="img_pop_con">
+          <div class="img_title">사진첨부</div>
+          <div class="insert_img">
+            <div class="insert_img_txt">
+              <ul>
+                <li>※ 기본으로 제공되는 이벤트성 이미지 입니다.</li>
+                <li>※ 다른 이미지를 사용하실 경우 아래 이미지 업로드를 이용해 주세요.</li>
+                <li>※ 이미지는 500x500 사이즈를 권장하며 최대900Kbyte 까지 첨부 가능합니다.</li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="upload_img">
+            <label for="upload_file2">업로드</label>
+            <input type="file" name="upload_file2" id="upload_file2" class="upload-hidden" onchange="javascript: document.getElementById('upload_name2').value = this.value">
+            <input class="upload-name" value="파일명" id="upload_name2" disabled="disabled" >
+          </div>
+
+          <div class="pop_btn_box">
+            <div class="pop_close_btn">
+              취소
+            </div>
+            <div class="pop_insert_btn" id="img_btn2">
+              등록
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--이미지 등록 팝업 end-->
+
+			<div class="pop_con auction_summery_pop" style="display:none;">
+				<div class="summery_pop_con">
+					<div class="summery_title">경매등록 정책</div>
+					<div class="summery_tbl">
+						<table>
+							<tr>
+								<td colspan="5" class="th_title">경매등록전 확인해 주세요.</td>
+							</tr>
+							<tr>
+								<td class="th_head">상품가격</td>
+								<td class="th_head">차감포인트</td>
+								<td class="th_head">최대경매기간</td>
+								<td class="th_head">최대참여인원</td>
+								<td class="th_head">세금납부</td>
+							</tr>
+							<tr>
+								<td>1만원미만</td>
+								<td>0p</td>
+								<td>15일</td>
+								<td>500명</td>
+								<td rowspan="2">없음</td>
+							</tr>
+							<tr >
+								<td>1만원~5만원</td>
+								<td>50p</td>
+								<td>30일</td>
+								<td>1,000명</td>
+							</tr>
+
+							<tr>
+								<td>5만원~10만원 미만</td>
+								<td>100p</td>
+								<td>30일</td>
+								<td>2,000명</td>
+								<td rowspan="4" style="text-align:left;">5만원이상 상품을 경매등록하실 경우 [상품가격-경매낙찰가]가 5만원이 넘을 경우 기타소득세(차액가의 22%) 납부의 책임이 가맹점에 있음을 알려드립니다. <br><span class="auction_ty03">세무처리에 참조하시기 바랍니다.</span></td>
+							</tr>
+							<tr>
+								<td>10만원~30만원 미만</td>
+								<td>300p</td>
+								<td>30일</td>
+								<td>5,000명</td>
+							</tr>
+							<tr>
+								<td>30만원~100만원 미만</td>
+								<td>500p</td>
+								<td>60일</td>
+								<td>10,000명</td>
+							</tr>
+							<tr>
+								<td>100만원이상</td>
+								<td>1,000p</td>
+								<td>90일</td>
+								<td>무제한</td>
+							</tr>
+						</table>
+					</div>
+					<div class="pop_btn_box">
+						<div class="pop_close_btn">
+							닫기
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--경매정책 팝업 end-->
+			<div class="pop_con auction_ok_pop" style="display:none;">
+				<div class="auction_ok_pop_con">
+					<div class="auction_ok_title">경매 등록 완료</div>
+					<div class="auction_ok_subtxt">
+						경매에 등록하신 내용을 확인 후, 승인 절차를 걸쳐 상품이 올라갑니다.
+					</div>
+					<div class="pop_btn_box">
+						<div class="pop_close_btn">
+							확인
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--이미지 등록 팝업 end-->
+		</div><!---ccontetns end--->
+	</div><!------wrap end------->
+
+</body>
+</html>

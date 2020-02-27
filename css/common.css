@@ -1,0 +1,65 @@
+*{margin:0 auto;padding:0;border:0;color:#333;}
+ul, ol, li{list-style:none;}
+a{text-decoration:none;}
+
+
+body{width:100%;margin:0 auto;font-family: 'Noto Sans KR', sans-serif;}
+/*로그인*/
+#wrap{width:100%;margin:0 auto;position:relative;min-height:100vh;background:#f7f7f7;}
+#wrap .login_contents{width:100%;height:100vh;}
+#wrap .login_contents .login_con_top{width:100%;height:45vh;background:#ededed;padding:20px;box-sizing:border-box;position:relative;}
+#wrap .login_contents .login_con_bottom{width:100%;height:55vh;background:#10253f;padding:20px;box-sizing:border-box;position:relative;}
+#wrap .login_contents .login_con_top .logo_box{text-align:center;margin-top:20px;}
+#wrap .login_contents .login_con_top .login_form{width:100%;overflow:hidden;margin-top:40px;padding:0 105px 0 105px;box-sizing:border-box;}
+#wrap .login_contents .login_con_top .login_form .login_input_box{width:400px;float:left;}
+#wrap .login_contents .login_con_top .login_form .login_input_box .id_input{width:100%;text-align:center;}
+#wrap .login_contents .login_con_top .login_form .login_input_box .id_input input{width:100%;font-size:20px;margin:0 auto;padding:7px 0;text-align:center;box-sizing:border-box;}
+#wrap .login_contents .login_con_top .login_form .login_input_box .pass_input{width:100%;margin-top:20px;text-align:center;}
+#wrap .login_contents .login_con_top .login_form .login_input_box .pass_input input{width:100%;font-size:20px;margin:0 auto;padding:7px 0;text-align:center;box-sizing:border-box;}
+#wrap .login_contents .login_con_top .login_form .login_btn{float:left;padding:24px 20px 25px 20px;box-sizing:border-box;margin-left:20px;background:#15365f;color:#fff;font-size:30px;cursor:pointer;}
+
+
+/*header*/
+.header{width:100%;height:10vh;background:#10253f;display:table;}
+.header ul{width:100%;overflow:hidden;padding:0 20px;box-sizing:border-box;display:table-row;}
+.header ul .logo_box{display:table-cell;padding-left:20px;vertical-align:middle;}
+.header ul .logo_box img{max-height:50%;cursor:pointer;}
+.header ul .menu_btn_box{display:table-cell;padding-right:20px;vertical-align:middle;text-align:right;}
+.header ul .menu_btn_box img{max-height:50%;cursor:pointer;}
+
+/*menu*/
+.menu_contents{width:100%;height:90vh;overflow:hidden;}
+.menu_contents .menu_form{width:100%;overflow:hidden;}
+.menu_contents .menu_form li{float:left;}
+.menu_contents .menu_form .menu_list_point{width:50%;height:40vh;background:url(../images/point_bg.jpg) no-repeat; background-size:cover;background-position:center center;}
+.menu_contents .menu_form .menu_list_point .point_menu_box{width:100%;height:40vh;background:rgba(9,32,60,0.7);cursor:pointer;position:relative;}
+.menu_contents .menu_form .menu_list_point .point_menu_box .point_menu{color:#fff;font-size:40px;font-weight:500;position:absolute;top:50%;left:50%;-webkit-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+.menu_contents .menu_form .menu_list_coin{width:50%;height:40vh;background:url(../images/coin_bg.jpg) no-repeat; background-size:cover;background-position:center center;}
+.menu_contents .menu_form .menu_list_coin .coin_menu_box{width:100%;height:40vh;background:rgba(60,10,9,0.7);cursor:pointer;position:relative;}
+.menu_contents .menu_form .menu_list_coin .coin_menu_box .coin_menu{color:#fff;width:246px;font-size:40px;font-weight:500;position:absolute;top:50%;left:50%;-webkit-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+.menu_contents .menu_form .menu_list_sub{width:25%;height:25vh;background:#f2f2f2;cursor:pointer;position:relative;}
+.menu_contents .menu_form .sub_bg2{background:#d7d7d7;}
+.menu_contents .menu_form .menu_list_sub .point_list_menu{width:154px;position:absolute;top:50%;left:50%;-webkit-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+.menu_contents .menu_form .menu_list_sub .point_list_menu .point_list_icon{width:100%;text-align:center;}
+.menu_contents .menu_form .menu_list_sub .point_list_menu .point_list_icon img{height:60px;}
+.menu_contents .menu_form .menu_list_sub .point_list_menu .point_list_title{font-size:20px;width:100%;text-align:center;font-weight:500;margin-top:10px;}
+
+.menu_contents .menu_form .menu_list_auction{width:50%;height:50vh;background:#404040;background:url(../images/auction_bg.jpg) no-repeat; background-size:cover;background-position:center center;}
+.menu_contents .menu_form .menu_list_auction .auction_menu_box{width:100%;height:50vh;background:rgba(108,18,71,0.7);cursor:pointer;position:relative;}
+.menu_contents .menu_form .menu_list_auction .auction_menu_box .auction_menu{color:#fff;font-size:40px;font-weight:500;position:absolute;top:50%;left:50%;-webkit-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+
+
+/*table*/
+.point_tbl{width:100%;display:table;}
+.point_tbl .point_row{display:table-row;}
+.point_tbl .point_row .point_cell{display:table-cell;vertical-align:middle;text-align:center;}
+
+
+
+/*pos*/
+.pos_logo_box{background:#10253f;}
+
+
+
+
+

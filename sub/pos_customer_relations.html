@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>가맹점 포인트</title>
+	<!--font-->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/contents.css">
+    <!-- scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/pos_customer_relations.js"></script>
+  <!-- jQuery & jQuery UI + theme (required) -->
+   <link href="../css/jquery-ui.min.css" rel="stylesheet">
+   <script src="../js/jquery-ui-custom.min.js"></script>
+   <!-- keyboard widget css & script (required) -->
+   <link href="../css/keyboard-basic.css" rel="stylesheet">
+   <script src="../js/jquery.keyboard.js"></script>
+   <!-- keyboard extensions (optional) -->
+   <script src="../js/jquery.mousewheel.js"></script>
+   <script>
+     $(function(){
+       $('#search_value').keyboard({
+            autoAccept: true
+       });
+     });
+     </script>
+</head>
+<body>
+	<div id="wrap">
+		<div class="header">
+			<ul>
+				<li class="logo_box"><a href="pos_menu.html"><img src="../images/pos_logo.png"/></a></li>
+				<li class="menu_btn_box"><a href="pos_menu.html"><img src="../images/menu_btn.png"/></a></li>
+			</ul>
+		</div>
+		<div class="contents">
+			<div class="customer_form">
+				<div class="main_title">고객관리</div>
+				<div class="customer_box">
+					<div class="point_list_input_search">
+						<div class="input_search_form point_tbl">
+							<ul class="point_row">
+								<li class="point_cell select_form">
+									<select id="search_select">
+										<option value="all">조건선택</option>
+										<option value="name">이름</option>
+										<option value="user_code">핸드폰 번호</option>
+
+									</select>
+								</li>
+								<li class="point_cell search_input_form">
+									<input type="text" id="search_value" class="number_input"/>
+								</li>
+								<li class="point_cell search_btn_form"><span class="search_btn">검색</span></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="customer_list">
+						<div class="point_tbl" id="list_area">
+
+
+						</div>
+					<div>
+				</div>
+				<div class="pop_form" style="display:none;">
+					<div class="pop_con wd400">
+						<div class="pop_con_title">고객정보 상세보기</div>
+						<div class="pop_customer_info">
+							<div class="point_tbl">
+								<div class="point_row">
+									<div class="point_cell">이름</div>
+									<div class="point_cell" id="user_code">홍길동</div>
+								</div>
+								<div class="point_row">
+									<div class="point_cell">휴대폰 번호</div>
+									<div class="point_cell" id="user_name">010-0000-0000</div>
+								</div>
+								<div class="point_row">
+									<div class="point_cell">최근 방문일자</div>
+									<div class="point_cell" id="registered">2019-01-06 18:46:00</div>
+								</div>
+								<div class="point_row">
+									<div class="point_cell">방문횟수</div>
+									<div class="point_cell"><span id="visit_count">0</span>회</div>
+								</div>
+							</div>
+						</div>
+						<div class="pop_customer_visit">
+							<div class="point_tbl" id="visit_tbl">
+
+
+							</div>
+						</div>
+						<div class="pop_close_btn">닫기</div>
+					</div>
+				</div>
+			</div>
+		</div><!---ccontetns end--->
+	</div><!------wrap end------->
+
+</body>
+</html>
