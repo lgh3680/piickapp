@@ -32,7 +32,7 @@ var jsIssueInput = function(ele) {
        if($(this).val().length > 7) {
            $(this).val($(this).val().substring(0, 7));
        }
-   });
+   }); 
 };
 
 
